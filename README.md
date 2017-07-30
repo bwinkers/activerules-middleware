@@ -11,7 +11,7 @@ It was developed for use with Loopback 3 but should work with any Express based 
 ## Install 
 
 ```
-    npm install
+    npm install --save activerules-middleware
 ```
 
 Add it early in the Loopback middleware.json initial phase:
