@@ -1,7 +1,7 @@
 {
   "name": "activerules-middleware",
-  "version": "1.0.1",
-  "description": "Middleware to load host or domain based configs.",
+  "version": "1.0.2",
+  "description": "Middleware to load host or domain based configs in EXpress and Loopback.",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
