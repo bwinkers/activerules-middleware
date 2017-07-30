@@ -3,7 +3,7 @@
 ## Overview
 
 Loopback / Express middleware to support dynamic logic based on hostname or domain.
-The confogs for the host and domain are merged and available int he request past that point.
+The configs for the host and domain are merged and available in the request past that point.
 This is useful when supporting skinned versions versions of apps for multiple domains.
 
 It was developed for use with Loopback 3 but should work with any Express based app.
