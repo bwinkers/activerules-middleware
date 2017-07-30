@@ -1,6 +1,6 @@
 {
   "name": "activerules-middleware",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "Middleware to load host or domain based configs.",
   "main": "index.js",
   "scripts": {
