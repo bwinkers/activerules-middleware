@@ -14,7 +14,10 @@
     "config",
     "express",
     "loopback",
-    "middleware"
+    "middleware",
+    "multi-domain",
+    "mulit-tenant",
+    "skinning",
   ],
   "author": "Brian Winkers",
   "license": "ISC",
