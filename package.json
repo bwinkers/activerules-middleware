@@ -1,0 +1,28 @@
+{
+  "name": "activerules-middleware",
+  "version": "0.1.2",
+  "description": "Middleware to load host or domain based configs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bwinkers/activerules-middleware.git"
+  },
+  "keywords": [
+    "config",
+    "express",
+    "loopback",
+    "middleware"
+  ],
+  "author": "Brian Winkers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bwinkers/activerules-middleware/issues"
+  },
+  "homepage": "https://github.com/bwinkers/activerules-middleware#readme",
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}
