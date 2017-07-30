@@ -17,7 +17,7 @@
     "middleware",
     "multi-domain",
     "mulit-tenant",
-    "skinning",
+    "skinning"
   ],
   "author": "Brian Winkers",
   "license": "ISC",
