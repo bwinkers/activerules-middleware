@@ -27,6 +27,12 @@ The *params* needs to be a a string representing the location of the ActiveRules
 
 The *params* directory must include two subdirectory: *host* and *site*.
 
+## Testing
+
+```
+    npm test
+```
+
 ## Usage
 
 Examples of the host and site configs can be found in the *test* directory.
