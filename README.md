@@ -4,8 +4,7 @@ This is useful when supporting skinned versions versions of apps for multiple do
 
 It was developed for use with Loopback 3 but should work with any Express based app.
 
-
-In the Loopback middleware.json add it early in the initial phase:
+Add it early in the Loopback middleware.json initial phase:
 ```
   "initial": {
     "./middleware/performance-tracker": {},
@@ -14,3 +13,4 @@ In the Loopback middleware.json add it early in the initial phase:
     },
     "compression": {},
 ```
+The *params* needs to be a a string representing the location of the ActiveRules configs.
