@@ -29,6 +29,8 @@ The *params* directory must include two subdirectory: *host* and *site*.
 
 ## Usage
 
+Examples of the host and site configs can be found in the *test* directory.
+
 ### Hostname Config
 
 * The site hostname must have a *.json* file for the root domain in the *host* directory.
