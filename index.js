@@ -7,7 +7,7 @@ module.exports = function(options) {
     
     ar.getSiteByHost(req.headers.host, options)
     .then(function (site) {
-        req.ar = ar;
+        req.site = site;
         console.log('ActiveRules initialized site: ' + site.site);
         next();
     })

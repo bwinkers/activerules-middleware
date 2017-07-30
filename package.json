@@ -24,5 +24,11 @@
   "homepage": "https://github.com/bwinkers/activerules-middleware#readme",
   "dependencies": {
     "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "mocha": "^3.4.2",
+    "node-mocks-http": "^1.6.4",
+    "sinon": "^2.4.1"
   }
 }
