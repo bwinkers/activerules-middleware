@@ -1,6 +1,6 @@
 {
   "name": "activerules-middleware",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Middleware to load host or domain based configs in EXpress and Loopback.",
   "main": "index.js",
   "scripts": {
