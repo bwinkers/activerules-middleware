@@ -1,4 +1,4 @@
-var middleware = require('../')("/home/brian/sandbox/loopback-app/activerules-middleware/test"), // the Middleware you want to test
+var middleware = require('../')(__dirname), // the Middleware you want to test
     httpMocks = require('node-mocks-http'), // quickly sets up REQUEST and RESPONSE to be passed into Express Middleware
     request = {}, // define REQUEST
     response = {} // define RESPONSE
