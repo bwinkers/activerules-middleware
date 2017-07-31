@@ -1,3 +1,5 @@
+'use strict';
+
 var ar = require('./lib/ar.js');
 
 module.exports = function(options) {
@@ -7,8 +9,9 @@ module.exports = function(options) {
     
     ar.getSiteByHost(req.headers.host, options)
     .then(function (site) {
-        req.site = site;
-        console.log('ActiveRules initialized site: ' + site.site);
+        req.ar = {};
+        req.ar.site = site;
+        console.log('ActiveRules initialized site: ' + req.ar.site.site);
         next();
     })
     .catch(function (err) {
