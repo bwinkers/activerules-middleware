@@ -38,9 +38,9 @@ describe('Middleware test', function(){
                 if (error) { throw new Error('Expected not to receive an error'); }
                 
                 // Other Tests Against request and response
-                if (!request.site) { throw new Error('Expected to find a site'); }
-                if (request.site.site != 'example') { throw new Error('Expected site to be "example"'); }
-                if (request.site.name != 'Example Site Config') { throw new Error('Expected site to be "example"'); }
+                if (!request.ar.site) { throw new Error('Expected to find a site'); }
+                if (request.ar.site.site != 'example') { throw new Error('Expected site to be "example"'); }
+                if (request.ar.site.name != 'Example Site Config') { throw new Error('Expected site to be "example"'); }
                 
                 done(); // call done so we can run the next test
             }); // close middleware
