@@ -17,7 +17,9 @@
     "middleware",
     "multi-domain",
     "mulit-tenant",
-    "skinning"
+    "skinning",
+    "activerules",
+    "hyper marketing"
   ],
   "author": "Brian Winkers",
   "license": "ISC",
