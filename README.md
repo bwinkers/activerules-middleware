@@ -33,6 +33,10 @@ The *params* directory must include two subdirectory: *host* and *site*.
     npm test
 ```
 
+Test passing:
+https://app.codeship.com/projects/240160
+https://travis-ci.org/bwinkers/activerules-middleware
+
 ## Usage
 
 Examples of the host and site configs can be found in the *test* directory.
