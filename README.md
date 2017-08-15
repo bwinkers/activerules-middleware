@@ -33,9 +33,16 @@ The *params* directory must include two subdirectory: *host* and *site*.
     npm test
 ```
 
-Test passing:
+### Public CI Testing Results:
+
+#### CodeShip
+
 https://app.codeship.com/projects/240160
+
+#### Travis CI
+
 https://travis-ci.org/bwinkers/activerules-middleware
+
 
 ## Usage
 
