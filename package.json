@@ -1,6 +1,6 @@
 {
   "name": "activerules-middleware",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "description": "Middleware to load host or domain based configs in Express and Loopback.",
   "main": "index.js",
   "engines": {
@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "chai": "^4.1.0",
+    "coveralls": "^2.13.1",
     "mocha": "^3.4.2",
     "node-mocks-http": "^1.6.4",
     "nyc": "^11.1.0",
