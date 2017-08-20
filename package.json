@@ -1,10 +1,10 @@
 {
   "name": "activerules-middleware",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Middleware to load host or domain based configs in Express and Loopback.",
   "main": "index.js",
   "scripts": {
-   "test": "nyc --reporter=text mocha"
+    "test": "nyc --reporter=text mocha"
   },
   "repository": {
     "type": "git",
@@ -29,7 +29,8 @@
   "homepage": "https://github.com/bwinkers/activerules-middleware#readme",
   "dependencies": {
     "bluebird": "^3.5.0",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "chai": "^4.1.0",
