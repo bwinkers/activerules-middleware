@@ -43,6 +43,9 @@ https://app.codeship.com/projects/240160
 
 https://travis-ci.org/bwinkers/activerules-middleware
 
+#### Coveralls - test coverage
+
+[![Coverage Status](https://coveralls.io/repos/github/bwinkers/activerules-middleware/badge.svg?branch=master)](https://coveralls.io/github/bwinkers/activerules-middleware?branch=master)
 
 ## Usage
 
