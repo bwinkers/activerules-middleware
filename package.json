@@ -3,6 +3,9 @@
   "version": "3.0.3",
   "description": "Middleware to load host or domain based configs in Express and Loopback.",
   "main": "index.js",
+  "engines": {
+    "node": "7.0"
+  }
   "scripts": {
     "test": "nyc --reporter=text mocha"
   },
