@@ -1,13 +1,14 @@
 {
   "name": "activerules-middleware",
-  "version": "3.0.3",
+  "version": "3.0.6",
   "description": "Middleware to load host or domain based configs in Express and Loopback.",
   "main": "index.js",
   "engines": {
     "node": "7.0"
   },
   "scripts": {
-    "test": "nyc --reporter=text mocha"
+    "test": "nyc --reporter=text mocha",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
