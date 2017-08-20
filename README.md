@@ -1,5 +1,14 @@
 # activerules-middleware
 
+[![NPM version](https://img.shields.io/npm/v/activerules-middleware.svg)](https://www.npmjs.com/package/activerules-middleware)
+[![Build Status](https://travis-ci.org/bwinkers/activerules-middleware.svg?branch=master)](https://travis-ci.org/bwinkers/activerules-middleware)
+[![Build status](https://ci.appveyor.com/api/projects/status/2ejpbpkek67wdosf?svg=true)](https://ci.appveyor.com/project/ShinnosukeWatanabe/activerules-middleware)
+[![Coverage Status](https://img.shields.io/coveralls/bwinkers/activerules-middleware.svg)](https://coveralls.io/github/bwinkers/activerules-middleware)
+[![Dependency Status](https://img.shields.io/david/bwinkers/activerules-middleware.svg?label=deps)](https://david-dm.org/bwinkers/activerules-middleware)
+[![devDependency Status](https://img.shields.io/david/dev/bwinkers/activerules-middleware.svg?label=devDeps)](https://david-dm.org/bwinkers/activerules-middleware#info=devDependencies)
+
+Promised-based middleware to load configs.
+
 ## Overview
 
 Loopback / Express middleware to support dynamic logic based on hostname or domain.
