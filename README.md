@@ -51,9 +51,13 @@ https://app.codeship.com/projects/240160
 
 https://travis-ci.org/bwinkers/activerules-middleware
 
+[![Build Status](https://travis-ci.org/bwinkers/activerules-middleware.svg?branch=master)](https://travis-ci.org/bwinkers/activerules-middleware)
+
 #### Coveralls - test coverage
 
-[![Coverage Status](https://coveralls.io/repos/github/bwinkers/activerules-middleware/badge.svg?branch=master)](https://coveralls.io/github/bwinkers/activerules-middleware?branch=master)
+* [Test Code Coverage Statistics](https://coveralls.io/github/bwinkers/activerules-middleware)
+
+![Coverage Status](https://img.shields.io/coveralls/bwinkers/activerules-middleware.svg)
 
 ## Usage
 
