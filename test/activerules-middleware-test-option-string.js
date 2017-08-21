@@ -23,7 +23,8 @@ describe('Middleware test w/o 404 enabled and option string', function(){
                 url: '/',
                 headers: {
                     host: 'www.example.com'
-                }
+                },
+                ar: 'should_be_made_an_onject'
             });
             response = httpMocks.createResponse();
             
