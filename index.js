@@ -28,8 +28,8 @@ module.exports = function(options) {
         // Do we want to throw a 404 if we don't find a site?
         if(typeof options.throw404 != 'undefined' && options.throw404 != false) {
             // Return a 404
-            res.status(404) // HTTP status 404: NotFound
-            .send('Domain or host support not found');
+            res.status(404); // HTTP status 404: NotFound
+            next(err);
         } else {
             // Call next middleware
             next();

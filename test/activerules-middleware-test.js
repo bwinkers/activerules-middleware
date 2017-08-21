@@ -4,7 +4,7 @@ var middleware = require('../')(__dirname), // the Middleware you want to test
     response = {} // define RESPONSE
 ;
 
-describe('Middleware test', function(){
+describe('Middleware test w/o 404 enabled', function(){
     
     
     context('Valid Site', function() {
