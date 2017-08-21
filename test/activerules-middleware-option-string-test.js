@@ -1,3 +1,4 @@
+'use strict;'
 
 var thisDirectory = __dirname;
 
@@ -90,7 +91,7 @@ describe('Middleware test w/o 404 enabled and option string', function(){
                 if (error) { throw new Error('Expected not to receive an error'); }
 
                 // Other Tests Against request and response
-                if (typeof request.ar != 'undefined') { throw new Error('Expected to NOT find a site'); }
+                if (typeof request.ar != 'string' && typeof request.ar != 'undefined') { throw new Error('Expected to NOT find a site'); }
 
                 done(); // call done so we can run the next test
             })            
