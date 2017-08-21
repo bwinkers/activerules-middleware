@@ -1,4 +1,12 @@
-var options = __dirname;
+'use strict;'
+
+var thisDirectory = __dirname;
+
+var options = {
+    configRoot: thisDirectory,
+    throw404: true
+};
+
 var middleware = require('../')(options); // the Middleware you want to test
 var httpMocks = require('node-mocks-http'); // quickly sets up REQUEST and RESPONSE to be passed into Express Middleware
 var request = {}; // define REQUEST
@@ -36,7 +44,7 @@ describe('Middleware test w 404 enabled', function(){
                  * in this test we are passing valid data in REQUEST we should not get an 
                  * error to be passed in.
                 **/
-                if (error) { throw new Error('Expected not to receive an error'); }
+                if (error) { throw new Error('Expected not to receive an error: ' + error.message); }
 
                 // Other Tests Against request and response
                 if (!request.ar.site) { throw new Error('Expected to find a site'); }
@@ -62,8 +70,10 @@ describe('Middleware test w 404 enabled', function(){
                     host: 'www.invalid-example.com'
                 }
             });
-            response = httpMocks.createResponse();
-            
+            response = httpMocks.createResponse({
+                status: '404'
+            });
+
             done(); // call done so that the next test can run
         });
         
@@ -79,10 +89,10 @@ describe('Middleware test w 404 enabled', function(){
                  * in this test we are passing valid data in REQUEST we should not get an 
                  * error to be passed in.
                 **/
-                if (error) { throw new Error('Expected not to receive an error'); }
+                if (error) { throw new Error('Expected not to receive an error: ' + error.message) ; }
 
                 // Other Tests Against request and response
-                if (typeof request.ar != 'undefined') { throw new Error('Expected to NOT find a site'); }
+                if (response.status != '404') { throw new Error('Expected 404, got: ' + response.status()); }
 
                 done(); // call done so we can run the next test
             })            
