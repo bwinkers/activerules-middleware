@@ -1,4 +1,11 @@
-var middleware = require('../')(__dirname), // the Middleware you want to test
+
+var thisDirectory = __dirname;
+
+var options = {
+    configRoot: thisDirectory
+};
+
+var middleware = require('../')(options), // the Middleware you want to test
     httpMocks = require('node-mocks-http'), // quickly sets up REQUEST and RESPONSE to be passed into Express Middleware
     request = {}, // define REQUEST
     response = {} // define RESPONSE
