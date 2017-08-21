@@ -9,10 +9,10 @@ var middleware = require('../')(options), // the Middleware you want to test
     response = {} // define RESPONSE
 ;
 
-describe('Middleware test w/ invalid hostname', function(){
+describe('Hostname Check', function(){
     
     
-    context('Hostname is an object', function() {
+    context('Hostname is "localhost"', function() {
         beforeEach(function(done) {
             /* 
              * before each test, reset the REQUEST and RESPONSE variables 
@@ -22,7 +22,7 @@ describe('Middleware test w/ invalid hostname', function(){
                 method: 'GET',
                 url: '/',
                 headers: {
-                    host: {what:'www.example.com'}
+                    host: 'localhost'
                 }
             });
             response = httpMocks.createResponse({
@@ -40,8 +40,11 @@ describe('Middleware test w/ invalid hostname', function(){
             **/
             middleware(request, response, function next(error) {
 
-
-                done(); // call done so we can run the next test
+                if(error) {
+                    done(error);
+                } else {
+                    done(); // call done so we can run the next test
+                }
             }); // close middleware
         })// close it
     }); // close context

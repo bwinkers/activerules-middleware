@@ -2,7 +2,8 @@
 var thisDirectory = __dirname;
 
 var options = {
-    configRoot: thisDirectory
+    configRoot: thisDirectory,
+    throw404: true
 };
 
 var middleware = require('../')(options), // the Middleware you want to test
@@ -13,7 +14,7 @@ var middleware = require('../')(options), // the Middleware you want to test
 
 var err = null;
 
-describe('Middleware test w/o 404 enabled', function(){
+describe('Middleware test w/ 404 enabled', function(){
     
     
     context('Valid Site', function() {
@@ -61,7 +62,11 @@ describe('Middleware test w/o 404 enabled', function(){
                     host: 'www.invalid-example.com'
                 }
             });
-            response = httpMocks.createResponse();
+            response = httpMocks.createResponse({
+                headers: {
+                    status: '404'
+                }
+            });
             
             done(); // call done so that the next test can run
         });
@@ -71,18 +76,23 @@ describe('Middleware test w/o 404 enabled', function(){
             middleware(request, response, function next(error) {
 
                 if (error) { 
-                    done(error);
+                    var n = error.message.startsWith("Cannot find module");
+                    
+                    if(n) {
+                        done();
+                    } else {
+                        done(error);
+                    }
+                } else {
+                    // Other Tests Against request and response
+                    if (response.statusCode != '404') { 
+                        err = new Error('Expected 404, got: ' + response.statusCode); 
+                        done(err);
+                    } else {
+                        done();
+                    }
                 }
-
-                // Other Tests Against request and response
-                if (typeof request.ar != 'undefined') { 
-                    err = new Error('Expected to NOT find a site'); 
-                    done(err);
-                }
-
-                done(); // call done so we can run the next test
-            })            
-            ; // close middleware
+            }); // close middleware
         }); // close it
     }); // close context
     

@@ -9,10 +9,10 @@ var middleware = require('../')(options), // the Middleware you want to test
     response = {} // define RESPONSE
 ;
 
-describe('Middleware test w/ invalid hostname', function(){
+describe('ActiveRules object', function(){
     
     
-    context('Hostname is an object', function() {
+    context('If its a string', function() {
         beforeEach(function(done) {
             /* 
              * before each test, reset the REQUEST and RESPONSE variables 
@@ -22,8 +22,9 @@ describe('Middleware test w/ invalid hostname', function(){
                 method: 'GET',
                 url: '/',
                 headers: {
-                    host: 'lcoalhost'
-                }
+                    host: 'localhost'
+                },
+                ar: 'bad string, should be an object'
             });
             response = httpMocks.createResponse({
                 statusCode: '404'
@@ -40,8 +41,18 @@ describe('Middleware test w/ invalid hostname', function(){
             **/
             middleware(request, response, function next(error) {
 
-
-                done(); // call done so we can run the next test
+                if(error) {
+                    done(error);
+                } else {
+                    
+                    // Other Tests Against request and response
+                    if (typeof request.ar === 'object') { 
+                        err = new Error('Expected to find a site object'); 
+                        done(err);
+                    } else {
+                        done(); // call done so we can run the next test
+                    }
+                }
             }); // close middleware
         })// close it
     }); // close context
