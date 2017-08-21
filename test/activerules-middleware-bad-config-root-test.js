@@ -1,7 +1,9 @@
 
-var thisDirectory ['an', 'array', 'here', 'is', 'unsupported'];
+var thisDirectory = __dirname;
 
-var options = thisDirectory;
+var options = {
+    configRoot: thisDirectory
+};
 
 var middleware = require('../')(options), // the Middleware you want to test
     httpMocks = require('node-mocks-http'), // quickly sets up REQUEST and RESPONSE to be passed into Express Middleware
@@ -9,7 +11,7 @@ var middleware = require('../')(options), // the Middleware you want to test
     response = {} // define RESPONSE
 ;
 
-describe('Middleware test w/o 404 enabled and option string', function(){
+describe('Middleware test w/o 404 enabled', function(){
     
     
     context('Valid Site', function() {
@@ -23,8 +25,7 @@ describe('Middleware test w/o 404 enabled and option string', function(){
                 url: '/',
                 headers: {
                     host: 'www.example.com'
-                },
-                ar: 'should_be_made_an_object'
+                }
             });
             response = httpMocks.createResponse();
             
@@ -67,8 +68,7 @@ describe('Middleware test w/o 404 enabled and option string', function(){
                 url: '/',
                 headers: {
                     host: 'www.invalid-example.com'
-                },
-                ar: 'should_be_made_an_object'
+                }
             });
             response = httpMocks.createResponse();
             
@@ -97,7 +97,7 @@ describe('Middleware test w/o 404 enabled and option string', function(){
             ; // close middleware
         }); // close it
     }); // close context
-        
+    
    
 }); // close describe
 
