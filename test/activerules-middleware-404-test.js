@@ -1,11 +1,10 @@
-var middleware = require('../')(__dirname), // the Middleware you want to test
-    httpMocks = require('node-mocks-http'), // quickly sets up REQUEST and RESPONSE to be passed into Express Middleware
-    request = {}, // define REQUEST
-    response = {} // define RESPONSE
-;
+var options = __dirname;
+var middleware = require('../')(options); // the Middleware you want to test
+var httpMocks = require('node-mocks-http'); // quickly sets up REQUEST and RESPONSE to be passed into Express Middleware
+var request = {}; // define REQUEST
+var response = {};// define RESPONSE
 
-describe('Middleware test', function(){
-    
+describe('Middleware test w 404 enabled', function(){
     
     context('Valid Site', function() {
         beforeEach(function(done) {
@@ -68,7 +67,7 @@ describe('Middleware test', function(){
             done(); // call done so that the next test can run
         });
         
-        it('does not have ActiveRules (ar) defined', function(done) {
+        it('gets a 404 response', function(done) {
             /*
              * Middleware expects to be passed 3 arguments: request, response, and next.
              * We are going to be manually passing REQUEST and RESPONSE into the middleware
@@ -90,8 +89,7 @@ describe('Middleware test', function(){
             ; // close middleware
         }); // close it
     }); // close context
-    
-   
+
 }); // close describe
 
 
