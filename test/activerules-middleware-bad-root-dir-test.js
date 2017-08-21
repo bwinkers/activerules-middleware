@@ -38,18 +38,13 @@ describe('Middleware test w/o 404 enabled and array', function(){
              * and create an function callback for next in which we run our tests
             **/
             middleware(request, response, function next(error) {
-                /*
-                 * Usually, we do not pass anything into next except for errors, so because
-                 * in this test we are passing valid data in REQUEST we should not get an 
-                 * error to be passed in.
-                **/
-                if (error) { done(); }; // call done so we can run the next test
+                done();
             }); // close middleware
         }); // close it
     }); // close context
     
     
-    context('IN-Valid Site', function() {
+    context('INVALID Site', function() {
         beforeEach(function(done) {
             /* 
              * before each test, reset the REQUEST and RESPONSE variables 
@@ -75,12 +70,7 @@ describe('Middleware test w/o 404 enabled and array', function(){
              * and create an function callback for next in which we run our tests
             **/
             middleware(request, response, function next(error) {
-                /*
-                 * Usually, we do not pass anything into next except for errors, so because
-                 * in this test we are passing valid data in REQUEST we should not get an 
-                 * error to be passed in.
-                **/
-                if (error) { done(); };
+               done();
             })            
             ; // close middleware
         }); // close it
