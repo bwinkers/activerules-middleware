@@ -2,6 +2,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/activerules-middleware.svg)](https://www.npmjs.com/package/activerules-middleware)
 [![Build Status](https://travis-ci.org/bwinkers/activerules-middleware.svg?branch=master)](https://travis-ci.org/bwinkers/activerules-middleware)
+[![Code Climate](https://codeclimate.com/github/bwinkers/activerules-middleware/badges/gpa.svg)](https://codeclimate.com/github/bwinkers/activerules-middleware)
 [![Coverage Status](https://img.shields.io/coveralls/bwinkers/activerules-middleware.svg)](https://coveralls.io/github/bwinkers/activerules-middleware)
 [![Dependency Status](https://img.shields.io/david/bwinkers/activerules-middleware.svg?label=deps)](https://david-dm.org/bwinkers/activerules-middleware)
 [![devDependency Status](https://img.shields.io/david/dev/bwinkers/activerules-middleware.svg?label=devDeps)](https://david-dm.org/bwinkers/activerules-middleware#info=devDependencies)
