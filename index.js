@@ -10,7 +10,7 @@ module.exports = function(options) {
     ar.getSiteByHost(req.headers.host, options)
     .then(function (site) {
         // If the request ActiveRules (ar) object is an object, create it.
-        if(typeof req.ar != 'object') {
+        if(typeof req.ar !== 'object') {
             req.ar = {};
         }
         // Set the site data in the request AR object
@@ -26,13 +26,13 @@ module.exports = function(options) {
         console.log(err.message); 
         
         // Do we want to throw a 404 if we don't find a site?
-        if(typeof options.throw404 != 'undefined' && options.throw404 != false) {
+        if(typeof options.throw404 !== 'undefined' && options.throw404 !== false) {
             // Return a 404
             res.status(404); // HTTP status 404: NotFound
-            next(err);
+            return next(err);
         } else {
             // Call next middleware
-            next();
+            return next();
         }
     });
   }
