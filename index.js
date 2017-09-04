@@ -9,10 +9,8 @@ module.exports = function(options) {
     // Retrieve the site for this hostname
     ar.getSiteByHost(req.headers.host, options)
     .then(function (site) {
-        // If the request ActiveRules (ar) object is an object, create it.
-        if(typeof req.ar !== 'object') {
-            req.ar = {};
-        }
+        req.ar = {};
+
         // Set the site data in the request AR object
         req.ar.site = site;
         
