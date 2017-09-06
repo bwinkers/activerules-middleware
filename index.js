@@ -9,12 +9,13 @@ module.exports = function(options) {
     // Retrieve the site for this hostname
     ar.getSiteByHost(req.headers.host, options)
     .then(function (site) {
-        req.ar = {};
+      
+      res.locals = {};
 
-        // Set the site data in the request AR object
-        req.ar.site = site;
+        // Set the site data in the Express res.locals
+        res.locals.site = site;
         
-        console.log('ActiveRules initialized site: ' + req.ar.site.site + ' for host: ' + req.headers.host + " from arRoot: " + options);
+        console.log('ActiveRules initialized site: ' + res.locals.site.site + ' for host: ' + req.headers.host + " from arRoot: " + options);
         
         // Call next middleware
         next();

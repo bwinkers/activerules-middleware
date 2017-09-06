@@ -1,8 +1,10 @@
+'use strict;'
 
 var thisDirectory = __dirname;
 
 var options = {
-    configRoot: thisDirectory
+  configRoot: thisDirectory,
+  throw404: true
 };
 
 var middleware = require('../')(options), // the Middleware you want to test
@@ -11,10 +13,48 @@ var middleware = require('../')(options), // the Middleware you want to test
     response = {} // define RESPONSE
 ;
 
-describe('Middleware test w/o 404 enabled', function(){
+describe('ActiveRules Middleware - 404 Enabled', function(){
     
     
-    context('Valid Site', function() {
+    context('If the request was for a valid site', function() {
+        beforeEach(function(done) {
+            /* 
+             * before each test, reset the REQUEST and RESPONSE variables 
+             * to be send into the middle ware
+            **/
+            request = httpMocks.createRequest({
+                method: 'GET',
+                url: '/',
+                headers: {
+                    host: 'www.example-of-unsupported-hostname.com'
+                }
+            });
+            response = httpMocks.createResponse();
+            
+            done(); // call done so that the next test can run
+        });
+        
+        it('the response object should have that site data', function(done) {
+            /*
+             * Middleware expects to be passed 3 arguments: request, response, and next.
+             * We are going to be manually passing REQUEST and RESPONSE into the middleware
+             * and create an function callback for next in which we run our tests
+            **/
+            middleware(request, response, function next(error) {
+                /*
+                 * Usually, we do not pass anything into next except for errors, so because
+                 * in this test we are passing valid data in REQUEST we should not get an 
+                 * error to be passed in.
+                **/
+                if (!error) { throw new Error('Expected to receive an error'); }
+
+                done(); // call done so we can run the next test
+            }); // close middleware
+        }); // close it
+    }); // close context
+
+
+    context('If the request was for a invalid site', function() {
         beforeEach(function(done) {
             /* 
              * before each test, reset the REQUEST and RESPONSE variables 
@@ -32,7 +72,7 @@ describe('Middleware test w/o 404 enabled', function(){
             done(); // call done so that the next test can run
         });
         
-        it('has valid ActiveRules Data', function(done) {
+        it('We should recieve a 404 error', function(done) {
             /*
              * Middleware expects to be passed 3 arguments: request, response, and next.
              * We are going to be manually passing REQUEST and RESPONSE into the middleware
@@ -44,20 +84,19 @@ describe('Middleware test w/o 404 enabled', function(){
                  * in this test we are passing valid data in REQUEST we should not get an 
                  * error to be passed in.
                 **/
-                if (error) { throw new Error('Expected not to receive an error'); }
+                if (error) { console.log(error)}
 
                 // Other Tests Against request and response
-                if (!request.ar.site) { throw new Error('Expected to find a site'); }
-                if (request.ar.site.site != 'example') { throw new Error('Expected site to be "example"'); }
-                if (request.ar.site.name != 'Example Site Config') { throw new Error('Expected site to be "Example Site Config"'); }
+                if (!response.locals.site) { throw new Error('Expected to find a site'); }
+                if (response.locals.site.site != 'example') { throw new Error('Expected site to be "example"'); }
+                if (response.locals.site.name != 'Example Site Config') { throw new Error('Expected site to be "Example Site Config"'); }
 
                 done(); // call done so we can run the next test
             }); // close middleware
         }); // close it
     }); // close context
     
-    
-    context('IN-Valid Site', function() {
+    context('If the request provided an object for a hostname', function() {
         beforeEach(function(done) {
             /* 
              * before each test, reset the REQUEST and RESPONSE variables 
@@ -67,7 +106,9 @@ describe('Middleware test w/o 404 enabled', function(){
                 method: 'GET',
                 url: '/',
                 headers: {
-                    host: 'www.invalid-example.com'
+                    host: {
+                      obj: 'www.example.com'
+                    }
                 }
             });
             response = httpMocks.createResponse();
@@ -75,7 +116,7 @@ describe('Middleware test w/o 404 enabled', function(){
             done(); // call done so that the next test can run
         });
         
-        it('does not have ActiveRules (ar) defined', function(done) {
+        it('we should get a 404 error', function(done) {
             /*
              * Middleware expects to be passed 3 arguments: request, response, and next.
              * We are going to be manually passing REQUEST and RESPONSE into the middleware
@@ -87,17 +128,13 @@ describe('Middleware test w/o 404 enabled', function(){
                  * in this test we are passing valid data in REQUEST we should not get an 
                  * error to be passed in.
                 **/
-                if (error) { throw new Error('Expected not to receive an error'); }
-
-                // Other Tests Against request and response
-                if (typeof request.ar != 'undefined') { throw new Error('Expected to NOT find a site'); }
+                if (!error) { throw new Error('Expected to receive an error'); }
 
                 done(); // call done so we can run the next test
-            })            
-            ; // close middleware
+            }); // close middleware
         }); // close it
     }); // close context
-    
+
    
 }); // close describe
 
