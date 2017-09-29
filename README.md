@@ -6,6 +6,7 @@
 [![Coverage Status](https://img.shields.io/coveralls/bwinkers/activerules-middleware.svg)](https://coveralls.io/github/bwinkers/activerules-middleware)
 [![Dependency Status](https://img.shields.io/david/bwinkers/activerules-middleware.svg?label=deps)](https://david-dm.org/bwinkers/activerules-middleware)
 [![devDependency Status](https://img.shields.io/david/dev/bwinkers/activerules-middleware.svg?label=devDeps)](https://david-dm.org/bwinkers/activerules-middleware#info=devDependencies)
+[![Known Vulnerabilities](https://snyk.io/test/github/activerules/activerules-middleware/badge.svg)](https://snyk.io/test/github/activerules/activerules-middleware)
 
 Promised-based middleware to load configs.
 
